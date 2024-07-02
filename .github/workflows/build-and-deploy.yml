@@ -1,7 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
 name: Build and Deploy
-
+env:
+  DOCKER_TAGS: ${{vars.DOCKER_TAGS}}
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
@@ -16,7 +17,7 @@ on:
           description: 'Select a tag'
           required: true
           type: choice
-          options: ${{ fromJSON(vars.DOCKER_TAGS) }}
+          options: ${{ fromJSON(env.DOCKER_TAGS) }}
      
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
