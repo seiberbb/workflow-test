@@ -18,7 +18,8 @@ on:
           description: 'Select a tag'
           required: true
           type: choice
-          options: ${{ toJSON(fromJSON('"Option1"')) }}
+          options: 
+            - ${{ toJSON(fromJSON('"Option1"')) }}
             # - "one"
             # - "two"
             # - "three"
