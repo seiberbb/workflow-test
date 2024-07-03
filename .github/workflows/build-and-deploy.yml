@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
     inputs:
         my_choice:
-          description: 'Select a tag'
+          description: ${{ env.ANOTHER_VAR }}
           required: true
           type: choice
           options:
