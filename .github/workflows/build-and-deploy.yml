@@ -18,7 +18,7 @@ on:
           description: 'Select a tag'
           required: true
           type: choice
-          options: ${{ fromJSON(vars.DOCKER_TAGS }}
+          options: ${{ fromJSON(vars.DOCKER_TAGS) }}
      
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
