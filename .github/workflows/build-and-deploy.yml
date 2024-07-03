@@ -18,11 +18,10 @@ on:
           description: 'Select a tag'
           required: true
           type: choice
-          options:
-          # ${{ fromJSON('[ "Option1", "Option2", "Option3" ]') }}
-            - "one"
-            - "two"
-            - "three"
+          options: ${{fromJSON("[ 'Option1', 'Option2', 'Option3' ]")}}
+            # - "one"
+            # - "two"
+            # - "three"
      
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
