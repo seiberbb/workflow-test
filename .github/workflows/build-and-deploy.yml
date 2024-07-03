@@ -4,6 +4,7 @@ name: Build and Deploy
 env:
   DOCKER_TAGS: ${{vars.DOCKER_TAGS}}
   MY_OPTIONS: '[ "Option1", "Option2", "Option3" ]'
+  ANOTHER_VAR: ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
@@ -20,7 +21,7 @@ on:
           type: choice
           options:
           # ${{ toJSON(fromJSON('["Option1"]')) }}
-            - ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
+            - ${{ env.ANOTHER_VAR }}
             # - "two"
             # - "three"
      
