@@ -18,8 +18,9 @@ on:
           description: 'Select a tag'
           required: true
           type: choice
-          options: ${{ toJSON(fromJSON('["Option1"]')) }}
-            # - "one"
+          options:
+          # ${{ toJSON(fromJSON('["Option1"]')) }}
+            - ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
             # - "two"
             # - "three"
      
