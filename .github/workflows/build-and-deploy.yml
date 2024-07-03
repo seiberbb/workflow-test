@@ -18,10 +18,11 @@ on:
           description: 'Select a tag'
           required: true
           type: choice
-          options: ${{ fromJSON('[ "Option1", "Option2", "Option3" ]') }}
-            # - "one"
-            # - "two"
-            # - "three"
+          options:
+          # ${{ fromJSON('[ "Option1", "Option2", "Option3" ]') }}
+            - "one"
+            - "two"
+            - "three"
      
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -39,12 +40,14 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
+        
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          echo ${{ fromJSON('[ "Option1", "Option2", "Option3" ]') }}
   deploy-dev:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
